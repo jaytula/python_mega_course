@@ -51,5 +51,9 @@ class basic_operations(unittest.TestCase):
     student_grades = {"Marry": 9.1, "Sim": 8.8, "John": 7.5}
     self.assertEqual(student_grades['Marry'], 9.1)
 
+  def test_convert_between_types(self):
+    data = [['name', 'John'], ['surname', 'smith']]
+    self.assertEqual(dict(data), {'name': 'John', 'surname': 'smith'})
+
 if __name__ == '__main__':
   unittest.main()
