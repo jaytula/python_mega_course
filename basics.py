@@ -67,5 +67,10 @@ class Basics(unittest.TestCase):
     username = "Python3"
     self.assertEqual(username.lower(), 'python3')
 
+  def test_dictionaries(self):
+    student_grades = {"Marry": 9.1, "Sim": 8.8, "John": 7.5}
+    self.assertEqual(list(student_grades.values()), [9.1, 8.8, 7.5])
+    self.assertEqual(list(student_grades.keys()), ["Marry", "Sim", "John"])
+
 if __name__ == '__main__':
   unittest.main()
