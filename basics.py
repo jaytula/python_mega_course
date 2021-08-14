@@ -35,7 +35,25 @@ class Basics(unittest.TestCase):
   def test_list_types(self):
     student_grades = [9.1, 8.8, 7.5]
     self.assertEqual(student_grades[0], 9.1)
+  
+  def test_calculate_average(self):
+    builtins = dir(__builtins__)
+    self.assertEqual('len' in builtins, True)
+    self.assertEqual('sum' in builtins, True)
+    self.assertEqual('add' in builtins, False)
 
+    list_methods = dir(list)
+    self.assertEqual('average' in list_methods, False)
+    self.assertEqual('append' in list_methods, True)
+
+    student_grades = [9.1, 8.8, 7.5]
+
+    mysum = sum(student_grades)
+    length = len(student_grades)
+
+    mean = mysum / length
+
+    self.assertAlmostEqual(mean, 8.467, 3)
 
 
 if __name__ == '__main__':
