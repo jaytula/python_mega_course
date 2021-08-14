@@ -55,6 +55,17 @@ class Basics(unittest.TestCase):
 
     self.assertAlmostEqual(mean, 8.467, 3)
 
+  def test_max_student_grades(self):
+    student_grades = [9.1, 8.8, 7.5]
+    self.assertEqual(max(student_grades), 9.1)
+
+  def test_count_student_grades(self):
+    student_grades = [9.1, 8.8, 10.0, 7.7, 6.8, 8.0, 10.0, 8.1, 10.0, 9.9]
+    self.assertEqual(student_grades.count(10.0), 3)
+
+  def test_lowercase_string(self):
+    username = "Python3"
+    self.assertEqual(username.lower(), 'python3')
 
 if __name__ == '__main__':
   unittest.main()
