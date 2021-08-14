@@ -30,5 +30,10 @@ class basic_operations(unittest.TestCase):
     self.assertEqual(monday_temperatures.__getitem__(1), 8.8)
     self.assertEqual(monday_temperatures[2], 7.5)
 
+  def test_accessing_list_slices(self):
+    monday_temperatures = [9.1, 8.8, 7.5, 6.6, 9.9]
+    self.assertEqual(monday_temperatures[1:4], [8.8, 7.5, 6.6])
+    self.assertEqual(monday_temperatures[:3], [9.1, 8.8, 7.5])
+
 if __name__ == '__main__':
   unittest.main()
