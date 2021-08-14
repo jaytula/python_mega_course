@@ -1,7 +1,11 @@
 import unittest
 
 def hours_in_weeks(week: int = 1):
-  return week * 7 * 24
+  day_hours = 24
+  week_days = 7
+  week_hours = week_days * day_hours
+
+  return week * week_hours
 
 class Basics(unittest.TestCase):
   def test_hours_in_week(self):
