@@ -20,5 +20,15 @@ class basic_operations(unittest.TestCase):
     with self.assertRaises(ValueError):
       monday_temperatures.index(8.8, 2)
 
+  def test_remove_item_from_list(self):
+    monday_temperatures = [9.1, 8.8, 7.5]
+    monday_temperatures.remove(8.8)
+    self.assertEqual(monday_temperatures, [9.1, 7.5])
+
+  def test_accessing_list_items(self):
+    monday_temperatures = [9.1, 8.8, 7.5]
+    self.assertEqual(monday_temperatures.__getitem__(1), 8.8)
+    self.assertEqual(monday_temperatures[2], 7.5)
+
 if __name__ == '__main__':
   unittest.main()
