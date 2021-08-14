@@ -40,5 +40,12 @@ class basic_operations(unittest.TestCase):
     self.assertEqual(monday_temperatures[-2:], [6.6, 9.9])
     self.assertEqual(monday_temperatures[-2:-1], [6.6])
     self.assertEqual(monday_temperatures[-1], 9.9)
+
+  def test_string_slices_and_indexing(self):
+    mystring = 'hello'
+    self.assertEqual(mystring[1], 'e')
+    self.assertEqual(mystring[-1], 'o')
+    self.assertEqual(mystring[:3], 'hel')
+
 if __name__ == '__main__':
   unittest.main()
