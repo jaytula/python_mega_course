@@ -47,5 +47,9 @@ class basic_operations(unittest.TestCase):
     self.assertEqual(mystring[-1], 'o')
     self.assertEqual(mystring[:3], 'hel')
 
+  def test_accessing_dictionary_items(self):
+    student_grades = {"Marry": 9.1, "Sim": 8.8, "John": 7.5}
+    self.assertEqual(student_grades['Marry'], 9.1)
+
 if __name__ == '__main__':
   unittest.main()
