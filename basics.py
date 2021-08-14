@@ -72,5 +72,9 @@ class Basics(unittest.TestCase):
     self.assertEqual(list(student_grades.values()), [9.1, 8.8, 7.5])
     self.assertEqual(list(student_grades.keys()), ["Marry", "Sim", "John"])
 
+  def test_tuples(self):
+    monday_temperatures = (1, 4, 3)
+    self.assertEqual(type(monday_temperatures), tuple)
+
 if __name__ == '__main__':
   unittest.main()
