@@ -15,6 +15,8 @@ def additions():
   sum1 = x + x
   sum2 = y + y
 
+
+
   return (sum1, sum2, x, y, z)
 
 class Basics(unittest.TestCase):
@@ -29,6 +31,10 @@ class Basics(unittest.TestCase):
     self.assertEqual(type(x), int)
     self.assertEqual(type(y), str)
     self.assertEqual(type(z), float)
+
+  def test_list_types(self):
+    student_grades = [9.1, 8.8, 7.5]
+    self.assertEqual(student_grades[0], 9.1)
 
 
 
