@@ -15,8 +15,6 @@ def additions():
   sum1 = x + x
   sum2 = y + y
 
-
-
   return (sum1, sum2, x, y, z)
 
 class Basics(unittest.TestCase):
