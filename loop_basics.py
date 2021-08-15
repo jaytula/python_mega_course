@@ -37,6 +37,9 @@ class MyTests(unittest.TestCase):
       self.assertTrue(item[0] in keys)
       self.assertTrue(item[1] in values)
 
+  def test_format_string_method(self):
+    self.assertEqual("Hello {}".format('foo'), 'Hello foo')
+
 
 if __name__ == '__main__':
   unittest.main()
