@@ -22,5 +22,22 @@ class MyTests(unittest.TestCase):
     for idx, ch in enumerate(s):
       self.assertEqual(ch, expected[idx])
 
+  def test_for_loop_over_dict(self):
+    student_grades = {"Marry": 9.1, "Sim": 8.8, "John": 7.5}
+    keys = ["Marry", "Sim", "John"]
+    values = [9.1, 8.8, 7.5]
+
+    for key in student_grades.keys():
+      self.assertTrue(key in keys)
+    
+    for value in student_grades.values():
+      self.assertTrue(value in values)
+
+    for item in student_grades.items():
+      self.assertTrue(item[0] in keys)
+      self.assertTrue(item[1] in values)
+
+
 if __name__ == '__main__':
   unittest.main()
+  
