@@ -1,4 +1,5 @@
 {
   "python.defaultInterpreterPath": ".env/bin/python",
-  "python.languageServer": "Pylance"
+  "python.languageServer": "Pylance",
+  "python.analysis.typeCheckingMode": "strict"
 }
