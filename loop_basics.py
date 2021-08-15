@@ -49,6 +49,22 @@ class MyTests(unittest.TestCase):
       count = count+1
     self.assertEqual(count, 2)
 
+  def test_while_break(self):
+    username = ''
+    usernames = ['a', 'b', 'c', 'd', 'pypy', 'f']
+    count = 0
+    while True:
+      if(len(usernames) == 0):
+        break
+      username = usernames.pop()
+      count = count + 1
+      if(username != 'pypy'):
+        continue
+      else:
+        break
+    self.assertEqual(count, 2)
+
+
 if __name__ == '__main__':
   unittest.main()
   
