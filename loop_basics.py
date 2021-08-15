@@ -40,6 +40,14 @@ class MyTests(unittest.TestCase):
   def test_format_string_method(self):
     self.assertEqual("Hello {}".format('foo'), 'Hello foo')
 
+  def test_while_loop(self):
+    username = ''
+    usernames = ['a', 'b', 'c', 'd', 'pypy', 'f']
+    count = 0
+    while username != 'pypy':
+      username = usernames.pop()
+      count = count+1
+    self.assertEqual(count, 2)
 
 if __name__ == '__main__':
   unittest.main()
