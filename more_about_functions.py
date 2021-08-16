@@ -21,5 +21,14 @@ class MyTestCase(unittest.TestCase):
 
     self.assertEqual(mean(3,4,5,6), 4.5)
 
+  def test_process_strings(self):
+    def process(*strings: str):
+      strings_list = list(strings)
+      strings_list.sort()
+
+      return [string.upper() for string in strings_list]
+
+    self.assertEqual(process('snow', 'glacier', 'iceberg'), ["GLACIER", "ICEBERG", "SNOW"])
+    
 if __name__ == '__main__':
   unittest.main()
