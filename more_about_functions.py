@@ -1,4 +1,4 @@
-from typing import List
+from typing import Dict, List
 import unittest
 
 class MyTestCase(unittest.TestCase):
@@ -29,6 +29,12 @@ class MyTestCase(unittest.TestCase):
       return [string.upper() for string in strings_list]
 
     self.assertEqual(process('snow', 'glacier', 'iceberg'), ["GLACIER", "ICEBERG", "SNOW"])
-    
+
+  def test_indefinite_number_of_keyword_arguments(self):
+    def mean(**kwargs: int):
+      return kwargs
+
+    self.assertEqual(mean(a=1, b=2, c=4), {"a": 1, "b": 2, "c": 4})
+
 if __name__ == '__main__':
   unittest.main()
