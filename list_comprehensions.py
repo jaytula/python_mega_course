@@ -21,6 +21,13 @@ class MyTestCase(unittest.TestCase):
 
     items = [99, 'no data', 95, 94, 'no data']
     self.assertEqual(foo(items), [99, 95, 94])
+  
+  def test_exercise_37(self):
+    def foo(items: List[int]):
+      return [item for item in items if item > 0]
+
+    items = [-5, 3, -1, 101]
+    self.assertEqual(foo(items), [3, 101])
 
 if __name__ == '__main__':
   unittest.main()
