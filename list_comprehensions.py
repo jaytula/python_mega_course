@@ -29,5 +29,14 @@ class MyTestCase(unittest.TestCase):
     items = [-5, 3, -1, 101]
     self.assertEqual(foo(items), [3, 101])
 
+  def test_list_comprehensions_if_else(self):
+    def foo(temps: List[int]):
+      return [temp / 10 if temp > 0 else 0 for temp in temps]
+
+    temps = [221, 234, 240, -9999, 230]
+    expected = [22.1, 23.4, 24.0, 0, 23.0]
+
+    self.assertEqual(foo(temps), expected)
+
 if __name__ == '__main__':
   unittest.main()
