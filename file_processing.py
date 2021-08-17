@@ -26,6 +26,15 @@ class MyTestCase(unittest.TestCase):
       self.assertEqual(items[0], 'blueberry')
       self.assertEqual(items[-1], 'raspberry')
 
+  def test_writing_text_file(self):
+    with open('files/vegetables.txt', 'w') as myfile:
+      myfile.write("Tomato\nCucumber\nOnion")
+
+    with open('files/vegetables.txt', 'r') as myfile:
+      contents = myfile.read()
+      items = contents.split('\n')
+      self.assertEqual(items[0], 'Tomato')
+
 
 if __name__ == '__main__':
   unittest.main()
