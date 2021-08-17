@@ -18,5 +18,14 @@ class MyTestCase(unittest.TestCase):
       self.assertEqual(items[0], 'pear')
       self.assertEqual(items[-1], 'pomegranate')
 
+  def test_different_filepaths(self):
+    with open('./files/fruits.txt') as myfile:
+      contents = myfile.read()
+      items = contents.split('\n')
+
+      self.assertEqual(items[0], 'blueberry')
+      self.assertEqual(items[-1], 'raspberry')
+
+
 if __name__ == '__main__':
   unittest.main()
