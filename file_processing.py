@@ -35,6 +35,14 @@ class MyTestCase(unittest.TestCase):
       items = contents.split('\n')
       self.assertEqual(items[0], 'Tomato')
 
+  def test_file_appending(self):
+    with open('files/morefruits.txt', 'a+') as myfile:
+      myfile.write('\nOkra')
+      myfile.seek(0)
+      content = myfile.read().strip()
+      items = content.split('\n')
+      self.assertEqual(items[-1], 'Okra');
+
 
 if __name__ == '__main__':
   unittest.main()
