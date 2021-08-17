@@ -41,7 +41,14 @@ class MyTestCase(unittest.TestCase):
       myfile.seek(0)
       content = myfile.read().strip()
       items = content.split('\n')
-      self.assertEqual(items[-1], 'Okra');
+      self.assertEqual(items[-1], 'Okra')
+
+  with open('files/data.txt', 'a+') as myfile:
+    myfile.seek(0)
+    contents = myfile.read()
+    print(contents)
+    myfile.write("\n" + contents)
+    myfile.write("\n" + contents)
 
 
 if __name__ == '__main__':
