@@ -28,7 +28,11 @@ class MyTestCase(unittest.TestCase):
     self.assertTrue('pandas' in os.listdir(site_packages))
 
   def test_using_pandas(self):
-    # print(dir(pandas))
+    if os.path.exists('files/temps_today.csv'):
+      df = pandas.read_csv('files/temps_today.csv')
+      series = df.mean()
+      st1: float = series.get('st1')
+      self.assertAlmostEqual(st1, 22.125, 1)
     pass
 
 if __name__ == '__main__':
