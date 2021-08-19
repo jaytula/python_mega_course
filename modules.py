@@ -9,21 +9,27 @@ class MyTestCase(unittest.TestCase):
     self.assertTrue('time' in sys.builtin_module_names)
     self.assertTrue('sleep' in dir(time))
 
-    print('Start sleep')
     time.sleep(0.5)
-    print('End timer')
+
 
   def test_standard_python_modules(self):
     self.assertTrue(os.path.exists('files/vegetables.txt'))
-    self.assertTrue(sys.prefix.endswith('.pyenv/versions/3.9.6'))
-    self.assertTrue(os.path.exists(f'{sys.prefix}/lib/python3.9/os.py'))
+    self.assertTrue(sys.prefix.endswith('.env'))
+
+    standard_modules_folder = os.path.dirname(os.__file__)
+
+    self.assertTrue(standard_modules_folder.endswith('python3.9'))
     self.assertTrue('listdir' in dir(os))
-    self.assertTrue('os.py' in os.listdir(f'{sys.prefix}/lib/python3.9'))
+    self.assertTrue('os.py' in os.listdir(f'{standard_modules_folder}'))
 
   def test_third_party_modules(self):
     # pip install pandas
     site_packages = f'{sys.prefix}/lib/python3.9/site-packages'
     self.assertTrue('pandas' in os.listdir(site_packages))
+
+  def test_using_pandas(self):
+    # print(dir(pandas))
+    pass
 
 if __name__ == '__main__':
   unittest.main()
