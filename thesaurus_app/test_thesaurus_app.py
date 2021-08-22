@@ -1,3 +1,4 @@
+from typing import List
 import unittest
 
 from thesaurus import translate
@@ -5,10 +6,13 @@ from thesaurus import translate
 class ThesaurusAppTests(unittest.TestCase):
   def test_basic_test(self):
     actual = translate('mountain')
-    self.assertTrue(actual.startswith('A feature of the'))
+    self.assertTrue(isinstance(actual, List) and actual[0].startswith('A feature of the'))
 
     actual = translate('mathematics')
-    self.assertTrue(actual.startswith('The science that deals'))
+    self.assertTrue(isinstance(actual, List) and actual[0].startswith('The science that deals'))
+
+    actual = translate('rainn')
+    self.assertEqual(actual, "The word doesn't. Please double check it.")
 
 if __name__ == '__main__':
   unittest.main()
