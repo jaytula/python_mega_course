@@ -1,6 +1,6 @@
 from typing import List
 import unittest
-from difflib import SequenceMatcher
+from difflib import SequenceMatcher, get_close_matches
 
 from thesaurus import translate
 
@@ -21,6 +21,10 @@ class ThesaurusAppTests(unittest.TestCase):
   def test_spellchecking(self):
     sq = SequenceMatcher(None, 'rainn', 'rain')
     self.assertAlmostEqual(sq.ratio(), 0.889, 3)
+
+  def test_bestmatches(self):
+    matches = get_close_matches('rainn', ['help', 'pyramid', 'rain'])
+    self.assertEqual(matches, ['rain'])
 
 if __name__ == '__main__':
   unittest.main()
