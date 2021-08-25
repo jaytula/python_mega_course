@@ -13,7 +13,7 @@ class ThesaurusAppTests(unittest.TestCase):
     self.assertTrue(isinstance(actual, List) and actual[0].startswith('The science that deals'))
 
     actual = translate('rainn')
-    self.assertEqual(actual, "The word doesn't. Please double check it.")
+    self.assertTrue(isinstance(actual, str) and actual.startswith("Did you mean"))
 
     actual = translate('RAIN')
     self.assertTrue(isinstance(actual, List) and actual[0].startswith('Precipitation'))
