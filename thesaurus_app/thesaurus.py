@@ -15,20 +15,29 @@ def translate(s: str):
   
   return "The word doesn't. Please double check it."
 
+def render_result(definitions: List[str]):
+  for definition in definitions:
+    print(definition)
+
 if __name__ == '__main__':
   word = input('Enter word: ')
   if isinstance(word, str):
     result = translate(word)
-    if isinstance(result, str):
-      print(result)
+    if isinstance(result, list):
+      render_result(result)
     elif isinstance(result, tuple):
       (type, word_suggestion) = result
       yn = input("Did you mean %s instead? Enter Y if yes, or N if no: " % word_suggestion)
+
       if yn == 'Y':
-        print(translate(word_suggestion))
+        result = translate(word_suggestion)
+        if(isinstance(result, list)): 
+          render_result(result)
       elif yn == 'N':
         print("The word doesn't exist Please double check it")
       else:
         print("We didn't understand your entry")
+    else:
+      print(result)
 
 
