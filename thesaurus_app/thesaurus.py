@@ -5,9 +5,10 @@ from difflib import get_close_matches
 data: Dict[str, List[str]] = json.load(open('./thesaurus_app/data.json', 'r'))
 
 def translate(s: str):
-  s = s.lower()
   if s in data:
     return data[s]
+  elif s.lower() in data:
+    return data[s.lower()]
   else:
     close_matches = get_close_matches(s, data.keys())
     if len(close_matches) > 0:
