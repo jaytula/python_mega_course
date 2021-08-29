@@ -1,7 +1,9 @@
 # Get by: 'pip install mysql-connector-python'
+from typing import List, Tuple
 import mysql.connector
 
 from mysql.connector.connection_cext import CMySQLConnection
+from mysql.connector.cursor_cext import CMySQLCursor
 
 def main():
   con = mysql.connector.connect(
@@ -12,11 +14,11 @@ def main():
   )
 
   if isinstance(con, CMySQLConnection):
-    cursor = con.cursor()
+    cursor: CMySQLCursor = con.cursor()
 
     word = input('Enter a word: ')
-    query = cursor.execute("SELECT * FROM Dictionary Where Expression = '%s'" % word)
-    results = cursor.fetchall()
+    cursor.execute("SELECT * FROM Dictionary Where Expression = '%s'" % word)
+    results: List[Tuple[str, str]] = cursor.fetchall()
 
     if results:
       for result in results:
